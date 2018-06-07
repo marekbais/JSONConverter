@@ -13,7 +13,9 @@ import org.json.simple.parser.ParseException;
 
 public class JSONReader {
 
-	// returns JSONArray from JSON file
+	/*
+	 *  returns JSONArray from JSON file
+	 */
 	public JSONArray extractJSONArrayFromFile(String path) {
 		JSONParser parser = new JSONParser();
 		JSONArray citiesJSONArray = new JSONArray();
@@ -30,7 +32,9 @@ public class JSONReader {
 		return citiesJSONArray;
 	}
 
-	// builds a City instance from JSONObject data
+	/*
+	 *  builds a City instance from JSONObject data
+	 */
 	public City extractCityFromJSONObject(JSONObject jsonObject) {
 		String name = jsonObject.get("name").toString();
 		double meanAge = Double.parseDouble(jsonObject.get("meanAge").toString());
@@ -41,19 +45,22 @@ public class JSONReader {
 		return new City(name, streets, zips, residents, meanAge);
 	}
 
-	// returns all cities in JSONArray
+	/*
+	 *  returns all cities in JSONArray
+	 */
 	public List<City> extractCitiesFromJSONArray(JSONArray jsonArray) {
 		List<City> cities = new ArrayList<>();
 		for (Object jsonObject : jsonArray) {
 			City newCity = extractCityFromJSONObject((JSONObject) jsonObject);
 			cities.add(newCity);
 		}
-
 		return cities;
 	}
 
-	// uses all of the methods above to give final output
-	public List<City> extractCities(String path) {
+	/*
+	 *  uses all of the methods above to give final output
+	 */
+	public List<City> readJSON(String path) {
 		return extractCitiesFromJSONArray(extractJSONArrayFromFile(path));
 	}
 }

@@ -134,12 +134,12 @@ public class JSONConverterTest {
 		for(Object profileObject : prepareProfileJSONArray()) {
 			objectsExtracted.add((JSONObject) profileObject);
 		}
-		JSONConverter mockedExtractionConverter = spy(converter);
-		mockedExtractionConverter.setReadPath("");
-		when(mockedExtractionConverter.extractObjectsFromJSON()).thenReturn(objectsExtracted);
+		JSONConverter spyExtractionConverter = spy(converter);
+		spyExtractionConverter.setReadPath("");
+		when(spyExtractionConverter.extractObjectsFromJSON()).thenReturn(objectsExtracted);
 
-		assertEquals(prepareCityJSONArray(), mockedExtractionConverter.convertJSONs());
-		verify(mockedExtractionConverter, times(prepareCityJSONArray().size())).calculateMeanAge((JSONObject) any());
+		assertEquals(prepareCityJSONArray(), spyExtractionConverter.convertJSONs());
+		verify(spyExtractionConverter, times(prepareCityJSONArray().size())).calculateMeanAge((JSONObject) any());
 	}
 	
 	@Test
@@ -148,7 +148,7 @@ public class JSONConverterTest {
 			converter.convertFromTo("src/test/resources/WrongFileIn.json", "src/test/resources/WrongFileOut.json");
 			fail("Expected an Exception");
 		} catch (Exception e) {
-			assertEquals(e.getMessage(), "File invalid");
+			assertEquals(e.getMessage(), "Object invalid");
 		}
 	}
 	

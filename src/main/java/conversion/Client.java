@@ -23,7 +23,7 @@ public class Client {
 		Profile profile10 = new Profile("fname10", "lname10", 55555, new Address("street5", "city2", "zip5"), null);
 		
 		List<Profile> profiles = new ArrayList<>(Arrays.asList(profile1, profile2, profile3, profile4, profile5, 
-												 profile6, profile7, profile8, profile9, profile10));
+												               profile6, profile7, profile8, profile9, profile10));
 		
 		JSONCreator jsonCreator = new JSONCreator();
 		jsonCreator.writeJSON(profiles, "src/main/resources/SampleJSONIn.json");
@@ -32,7 +32,7 @@ public class Client {
 		jsonConverter.convertFromTo("src/main/resources/SampleJSONIn.json","src/main/resources/SampleJSONOut.json");
 		
 		JSONReader jsonReader = new JSONReader();
-		System.out.println(jsonReader.extractCities("src/main/resources/SampleJSONOut.json").toString());
+		System.out.println(jsonReader.readJSON("src/main/resources/SampleJSONOut.json").toString());
 	}
 
 }

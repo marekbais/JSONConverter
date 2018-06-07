@@ -15,7 +15,9 @@ public class JSONCreator {
 
 	private List<Profile> profiles;
 
-	// creates a JSON address of a single profile
+	/*
+	 *  creates a JSON address of a single profile
+	 */
 	public static JSONObject createJSONAddress(Profile profile) {
 		JSONObject jsonAddress = new JSONObject();
 
@@ -29,7 +31,9 @@ public class JSONCreator {
 		return jsonAddress;
 	}
 
-	// creates a JSON contact of a single profile
+	/*
+	 *  creates a JSON contact of a single profile
+	 */
 	public static JSONArray createJSONContact(Profile profile) {
 		JSONArray jsonContact = new JSONArray();
 		try {
@@ -45,9 +49,10 @@ public class JSONCreator {
 		return jsonContact;
 	}
 
-	// creates a JSONArray of all profiles
+	/*
+	 *  creates a JSONArray of all profiles
+	 */
 	public JSONArray createJSONProfiles() {
-
 		JSONArray jsonProfiles = new JSONArray();
 
 		for (Profile profile : profiles) {
@@ -60,13 +65,14 @@ public class JSONCreator {
 			jsonProfile.put("age", profile.getAge());
 			jsonProfile.put("address", jsonAddress);
 			jsonProfile.put("contact", jsonContact);
-
 			jsonProfiles.add(jsonProfile);
 		}
 		return jsonProfiles;
 	}
 
-	// creates a JSON file
+	/*
+	 *  uses all of the methods above to create a JSON file
+	 */
 	public void writeJSON(List<Profile> profiles, String path) {
 		this.profiles = profiles;
 		try {
