@@ -1,0 +1,3 @@
+[{"last name":"lname1","address":{"zip":"zip1","city":"city1","street":"street1"},"first name":"fname1","contact":null,"age":1},
+ {"last name":"lname2","address":{"zip":"zip2","city":"city2","street":"street2"},"first name":"fname2","contact":null,"age":2}]	
+
