@@ -16,6 +16,20 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/*
+ * Converts from Profile: [{"last name":"lname1",
+ * 							"first name":"fname1",
+ * 							"age":1,
+ * 							"address":{"zip":"zip1","city":"city1","street":"street1"},
+ * 							"contact":null}
+ * 							]	
+ * to City: [{"name":"city1", 
+ * 			  "streets":["street1"],
+ * 			  "zips":["zip1"],
+ * 			  "residents":["fname1 lname1"],
+ * 			  "meanAge":1.0}
+ * 			]
+ */
 public class JSONConverter {
 
 	private String readPath;
